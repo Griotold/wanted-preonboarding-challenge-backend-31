@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ecommerce_db
+    driver-class-name: org.postgresql.Driver
+    username: griotold
+    password: pass
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        query:
+          in_clause_parameter_padding: true
+        default_batch_fetch_size: 100
+    open-in-view: false
