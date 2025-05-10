@@ -19,12 +19,10 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // 연관관계: 하나의 리뷰는 하나의 상품에 속함
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;
 
-    // 연관관계: 하나의 리뷰는 하나의 유저가 작성
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
@@ -42,9 +40,11 @@ public class Review {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    // 실제 구매자가 남긴 리뷰인지 여부
     @Column(name = "verified_purchase")
     private Boolean verifiedPurchase;
 
+    // 이 리뷰가 다른 사용자에게 얼마나 "도움이 되었다"고 평가받았는지
     @Column(name = "helpful_votes")
     private Integer helpfulVotes;
 
